@@ -1,6 +1,7 @@
 package sisrh.rest;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -50,6 +51,26 @@ public class EmpregadoRest {
 					"{ \"mensagem\" : \"Falha para obter empregado!\" , \"detalhe\" :  \"" + e.getMessage() + "\"  }")
 					.build();
 		}
+	}
+
+	@GET
+	@Path("ativos")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response listarAtivos() throws Exception {
+		List<Empregado> lista = Banco.listarEmpregados(Optional.of(false));
+		GenericEntity<List<Empregado>> empregados = new GenericEntity<List<Empregado>>(lista) {
+		};
+		return Response.ok().entity(empregados).build();
+	}
+
+	@GET
+	@Path("inativos")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Response listarInativos() throws Exception {
+		List<Empregado> lista = Banco.listarEmpregados(Optional.of(true));
+		GenericEntity<List<Empregado>> empregados = new GenericEntity<List<Empregado>>(lista) {
+		};
+		return Response.ok().entity(empregados).build();
 	}
 
 	@POST

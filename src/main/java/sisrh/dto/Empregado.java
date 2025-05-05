@@ -5,7 +5,6 @@ import javax.xml.bind.annotation.*;
 
 public class Empregado {
 
-	
 	@XmlElement(name = "matricula")
 	private String matricula;
 	@XmlElement(name = "nome")
