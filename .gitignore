@@ -1,3 +1,9 @@
+# Eclipse
+.metadata/
+*.classpath
+*.project
+*.settings/
+
 # Java
 *.class
 *.log
@@ -17,6 +23,10 @@
 
 # VS Code
 .vscode/
+
+# SOs
+.DS_Store
+Thumbs.db
 
 # Outros
 .env
